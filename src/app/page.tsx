@@ -1,7 +1,11 @@
+import Navbar from "@/components/navbar";
+
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			<h1>Raspberry pi</h1>
+		<main>
+			<div className="relative w-full flex items-center justify-center">
+				<Navbar className="top-2" />
+			</div>
 		</main>
 	);
 }
