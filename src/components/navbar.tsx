@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import NavLink from "./nav-link";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SunIcon } from "@radix-ui/react-icons";
+import { SunIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 
 type NavbarProps = {
 	className?: string;
@@ -30,14 +30,19 @@ export default function Navbar({ className }: NavbarProps) {
 							</span>
 						</Link>
 						<div className="flex items-center gap-1.5">
-							<NavLink>Giovanni</NavLink>
-							<NavLink>Andrea</NavLink>
-							<NavLink>Jhon</NavLink>
+							<NavLink href="https://github.com/GIMMI42PIASTRATO/home-dashboard/blob/main/README.md">
+								Documentation
+							</NavLink>
 						</div>
 					</div>
-					<div className="flex space-x-2 items-center">
+					<div className="flex space-x-4 items-center">
 						<Button variant="ghost" size="icon">
 							<SunIcon className="h-4 w-4" />
+						</Button>
+						<Button variant="ghost" size="icon" asChild>
+							<Link href="https://github.com/GIMMI42PIASTRATO/home-dashboard">
+								<GitHubLogoIcon className="h-5 w-5" />
+							</Link>
 						</Button>
 						<Button className="rounded-full" asChild>
 							<Link href="/sign-in">Sign In</Link>
