@@ -2,12 +2,16 @@ import Navbar from "@/components/navbar";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 
+import Hero from "@/components/hero";
+
 export default function Home() {
 	return (
 		<main>
 			<Navbar className="top-2" />
 			<div className="relative overflow-hidden">
-				<div className="max-w-7xl mx-auto px-4 flex min-h-screen flex-col items-center justify-between"></div>
+				<div className="max-w-7xl mx-auto px-4 flex min-h-screen flex-col items-center justify-between">
+					<Hero />
+				</div>
 				<ShootingStars
 					minDelay={1000}
 					maxDelay={3000}
