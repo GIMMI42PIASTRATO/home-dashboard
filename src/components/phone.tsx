@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
 
@@ -37,23 +37,39 @@ const fadeAnimationVariants = {
 export default function Phone() {
 	const controls = useAnimationControls();
 	const [isInView, setIsInView] = useState(false);
+	const [isAnimating, setIsAnimating] = useState(false);
+	const timerRef = useRef<NodeJS.Timeout | null>(null);
 
 	useEffect(() => {
-		let timer: NodeJS.Timeout;
-		if (isInView) {
-			const startAnimation = async () => {
+		const startLoop = async () => {
+			if (isInView && !isAnimating) {
+				setIsAnimating(true);
 				await controls.start("animate");
-				timer = setTimeout(() => {
-					controls
-						.start("reset")
-						.then(() => controls.start("animate"));
-				}, 5000); // Aspetta 5 secondi prima di ricominciare l'animazione
-			};
-			startAnimation();
+
+				timerRef.current = setTimeout(async () => {
+					await controls.start("reset");
+					setIsAnimating(false);
+					startLoop();
+				}, 5000);
+			}
+		};
+
+		if (isInView) {
+			startLoop();
+		} else {
+			if (timerRef.current) {
+				clearTimeout(timerRef.current);
+			}
+			controls.start("reset");
+			setIsAnimating(false);
 		}
 
-		return () => clearTimeout(timer);
-	}, [isInView, controls]);
+		return () => {
+			if (timerRef.current) {
+				clearTimeout(timerRef.current);
+			}
+		};
+	}, [isInView, controls, isAnimating]);
 
 	return (
 		<div className="h-full w-full">
@@ -118,6 +134,6 @@ const messages: Message[] = [
 		id: 4,
 		content: "tf",
 		sender: "me",
-		stagger: 2.8,
+		stagger: 1.5,
 	},
 ];
