@@ -3,6 +3,7 @@ import GridLayout from "./grid-layout";
 
 import { Card } from "@/components/grid-layout";
 import Phone from "@/components/phone";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export default function Features() {
 	return (
@@ -59,6 +60,29 @@ const Feature2: React.FC = () => {
 	);
 };
 
+const Feature3: React.FC = () => {
+	return (
+		<div className="p-4 sm:p-8 relative border-b border-r dark:border-neutral-800 h-full">
+			<h3 className="max-w-5xl tracking-tight font-medium text-black dark:text-white text-xl md:text-2xl md:leading-snug text-left">
+				Automate your home
+			</h3>
+			<h2 className="text-sm font-normal text-neutral-600 dark:text-neutral-300 text-left max-w-sm mx-0 md:text-sm my-2">
+				Automate your home to make your life easier. For example, turn
+				on the lights when you get home.
+			</h2>
+			<div className="h-full w-full">
+				<div className="h-full  flex flex-col items-center relative bg-white dark:bg-[#09090b] mt-10">
+					{/* <InfiniteMovingCards
+						items={testimonials}
+						direction="right"
+						speed="fast"
+					/> */}
+				</div>
+			</div>
+		</div>
+	);
+};
+
 const cards: Card[] = [
 	{
 		id: 1,
@@ -69,5 +93,10 @@ const cards: Card[] = [
 		id: 2,
 		content: <Feature2 />,
 		className: "md:col-span-2 h-[770px] overflow-hidden",
+	},
+	{
+		id: 3,
+		content: <Feature3 />,
+		className: "md:col-span-6 overflow-hidden",
 	},
 ];
