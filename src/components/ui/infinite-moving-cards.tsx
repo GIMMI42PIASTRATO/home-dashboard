@@ -1,5 +1,10 @@
 "use client";
 
+export type ItemsData = {
+	text: string;
+	icon: React.ReactNode;
+};
+
 import { cn } from "@/lib/utils";
 import { it } from "node:test";
 import React, { useEffect, useState } from "react";
@@ -11,10 +16,7 @@ export const InfiniteMovingCards = ({
 	pauseOnHover = true,
 	className,
 }: {
-	items: {
-		text: string;
-		icon: React.ReactNode;
-	}[];
+	items: ItemsData[];
 	direction?: "left" | "right";
 	speed?: "fast" | "normal" | "slow";
 	pauseOnHover?: boolean;

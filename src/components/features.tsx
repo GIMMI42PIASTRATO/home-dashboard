@@ -4,6 +4,7 @@ import GridLayout from "./grid-layout";
 import { Card } from "@/components/grid-layout";
 import Phone from "@/components/phone";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { cards } from "@/data/features-data";
 
 export default function Features() {
 	return (
@@ -17,7 +18,7 @@ export default function Features() {
 				only your imagination.
 			</p>
 			<div className="relative">
-				<GridLayout cards={cards} />
+				<GridLayout cards={features} />
 			</div>
 		</section>
 	);
@@ -72,18 +73,18 @@ const Feature3: React.FC = () => {
 			</h2>
 			<div className="h-full w-full">
 				<div className="h-full  flex flex-col items-center relative bg-white dark:bg-[#09090b] mt-10">
-					{/* <InfiniteMovingCards
-						items={testimonials}
+					<InfiniteMovingCards
+						items={cards}
 						direction="right"
 						speed="fast"
-					/> */}
+					/>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-const cards: Card[] = [
+const features: Card[] = [
 	{
 		id: 1,
 		content: <Feature1 />,
