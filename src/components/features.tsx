@@ -19,6 +19,10 @@ export default function Features() {
 			</p>
 			<div className="relative">
 				<GridLayout cards={features} />
+				<div className="absolute w-[1px] left-0 top-[-10%] h-[120%] z-50 border-l border-dashed"></div>
+				<div className="absolute h-[1px] left-[-10%] top-0 w-[120%] z-50 border-t border-dashed"></div>
+				<div className="absolute w-[1px] right-0 top-[-10%] h-[120%] z-50 border-r border-dashed"></div>
+				<div className="absolute h-[1px] left-[-10%] bottom-0 w-[120%] z-50 border-t border-dashed"></div>
 			</div>
 		</section>
 	);
@@ -48,7 +52,7 @@ const Feature1: React.FC = () => {
 
 const Feature2: React.FC = () => {
 	return (
-		<div className="p-4 sm:p-8 relative border-b border-r dark:border-neutral-800 h-full">
+		<div className="p-4 sm:p-8 relative border-b dark:border-neutral-800 h-full">
 			<h3 className="max-w-5xl mx-auto tracking-tight font-medium text-black dark:text-white text-xl md:text-2xl md:leading-snug text-left">
 				Get notification for everything you want
 			</h3>
@@ -63,7 +67,7 @@ const Feature2: React.FC = () => {
 
 const Feature3: React.FC = () => {
 	return (
-		<div className="p-4 sm:p-8 relative border-b border-r dark:border-neutral-800 h-full">
+		<div className="p-4 sm:p-8 relative h-full">
 			<h3 className="max-w-5xl tracking-tight font-medium text-black dark:text-white text-xl md:text-2xl md:leading-snug text-left">
 				Host Your Smart Home Dashboard on Any Single Board Computer
 			</h3>
