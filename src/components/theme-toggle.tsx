@@ -20,7 +20,7 @@ export default function ThemeToggle() {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="ghost" size="icon">
-					<SunIcon className="h-4 w-4" />
+					<SunIcon className="h-4 w-4 z-10" />
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>

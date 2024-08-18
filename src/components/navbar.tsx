@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
-import NavLink from "./nav-link";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { GitHubLogoIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import ThemeToggle from "@/components/theme-toggle";
 import Logo from "@/components/logo";
+import LargeNav from "@/components/large-nav";
 
 import {
 	Sheet,
@@ -28,37 +28,6 @@ export default function Navbar({ className }: NavbarProps) {
 			<LargeNav />
 			<SmallNav />
 		</nav>
-	);
-}
-
-function LargeNav() {
-	return (
-		<div className="hidden lg:block w-full">
-			<div className="w-full flex relative justify-between px-4 py-2 rounded-full bg-transparent transition duration-200">
-				<div className="flex flex-row gap-2 items-center">
-					<Logo />
-					<div className="flex items-center gap-1.5">
-						<NavLink href="https://github.com/GIMMI42PIASTRATO/home-dashboard/blob/main/README.md">
-							Documentation
-						</NavLink>
-					</div>
-				</div>
-				<div className="flex space-x-4 items-center">
-					<ThemeToggle />
-					<Button variant="ghost" size="icon" asChild>
-						<Link
-							href="https://github.com/GIMMI42PIASTRATO/home-dashboard"
-							target="_blank"
-						>
-							<GitHubLogoIcon className="h-5 w-5" />
-						</Link>
-					</Button>
-					<Button className="rounded-full" asChild>
-						<Link href="/sign-in">Sign In</Link>
-					</Button>
-				</div>
-			</div>
-		</div>
 	);
 }
 
