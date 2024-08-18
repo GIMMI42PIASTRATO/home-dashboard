@@ -65,18 +65,30 @@ const Feature3: React.FC = () => {
 	return (
 		<div className="p-4 sm:p-8 relative border-b border-r dark:border-neutral-800 h-full">
 			<h3 className="max-w-5xl tracking-tight font-medium text-black dark:text-white text-xl md:text-2xl md:leading-snug text-left">
-				Automate your home
+				Host Your Smart Home Dashboard on Any Single Board Computer
 			</h3>
-			<h2 className="text-sm font-normal text-neutral-600 dark:text-neutral-300 text-left max-w-sm mx-0 md:text-sm my-2">
-				Automate your home to make your life easier. For example, turn
-				on the lights when you get home.
+			<h2 className="text-sm font-normal text-neutral-600 dark:text-neutral-300 text-left max-w-xl mx-0 md:text-sm my-2">
+				Manage your smart home remotely with secure access, hosting the
+				dashboard on Raspberry Pi, Orange Pi, NVIDIA Jetson, and many
+				other single-board computers, ensuring accessibility from
+				anywhere.
 			</h2>
 			<div className="h-full w-full">
-				<div className="h-full  flex flex-col items-center relative bg-white dark:bg-[#09090b] mt-10">
+				<div className="h-full  flex flex-col items-center mt-10">
+					<InfiniteMovingCards
+						items={cards}
+						direction="left"
+						speed="fast"
+					/>
 					<InfiniteMovingCards
 						items={cards}
 						direction="right"
-						speed="fast"
+						speed="normal"
+					/>
+					<InfiniteMovingCards
+						items={cards}
+						direction="left"
+						speed="normal"
 					/>
 				</div>
 			</div>

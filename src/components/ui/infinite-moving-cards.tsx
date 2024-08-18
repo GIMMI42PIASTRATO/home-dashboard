@@ -6,7 +6,6 @@ export type ItemsData = {
 };
 
 import { cn } from "@/lib/utils";
-import { it } from "node:test";
 import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingCards = ({
@@ -84,7 +83,7 @@ export const InfiniteMovingCards = ({
 		<div
 			ref={containerRef}
 			className={cn(
-				"scroller relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+				"scroller relative z-20  max-w-7xl overflow-hidden",
 				className
 			)}
 		>
@@ -96,15 +95,17 @@ export const InfiniteMovingCards = ({
 					pauseOnHover && "hover:[animation-play-state:paused]"
 				)}
 			>
-				{items.map((item) => (
-					<li
-						className="flex items-center justify-center relative rounded-2xl border border-neutral-200 dark:border-neutral-800 px-2 py-2 bg-white dark:bg-neutral-900"
-						key={item.text}
-					>
-						<span className="w-4 h-4">{item.icon}</span>
-						<span>{item.text}</span>
-					</li>
-				))}
+				<div className="flex space-x-4 flex-shrink-0 mb-4 relative z-40">
+					{items.map((item) => (
+						<li
+							className="space-x-1 min-w-24 flex justify-center items-center  bg-white dark:bg-neutral-900 px-2 py-1 text-sm rounded-md shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+							key={item.text}
+						>
+							<span className="w-4 h-4">{item.icon}</span>
+							<span>{item.text}</span>
+						</li>
+					))}
+				</div>
 			</ul>
 		</div>
 	);
